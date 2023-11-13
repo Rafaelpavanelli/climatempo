@@ -37,17 +37,7 @@ export default function Home() {
     // Limpa o intervalo quando o componente for desmontado
     return () => clearInterval(intervalId);
   }, []);
-  const Exemple = [
-    ["Horario", "Temperatura relativa", "Temperatura", 'Umidade'],
-    [6, 22, 0, 5],
-    [7, 10, 5, 7],
-    [8, 23, 15, 23],
-    [9, 17, 9, 5],
-    [10, 18, 10, 23],
-    [11, 9, 5, 2],
-    [12, 11, 3, 22],
-    [13, 27, 19, 11],
-  ];
+  
   function AlterDate(valor) {
     const dataString = valor.toString();
     const partesDaData = dataString.split("/");
@@ -61,7 +51,6 @@ export default function Home() {
 
       const ultimaData = new Date(array[array.length - 1].DATA);
       
-      console.log(ultimaData)
       // Obtém a data no formato "dd/mm/yyyy"
        const dataFormatada = ultimaData.toLocaleDateString();
   
@@ -106,7 +95,6 @@ export default function Home() {
       var lastDia = new Date();
       const uniqueDays = [...new Set(sensores.map(sensor =>{
         if(new Date(sensor.DATA).toLocaleDateString() !== lastDia){
-          console.log( new Date(sensor.DATA).toLocaleDateString())
           lastDia = new Date(sensor.DATA).toLocaleDateString();          return new Date(sensor.DATA)
          
         }else{
